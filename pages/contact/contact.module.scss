@@ -1,0 +1,210 @@
+@use "../../styles/mixins.scss" as *;
+
+.main {
+    position: relative;
+    z-index: 1;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    @include fade-in();
+}
+
+.logo {
+    width: 16rem;
+    height: auto;
+}
+
+.title_box {
+    width: 15rem;
+    @include font-details(var(--text-color), "ag-regular", 1rem);
+    text-transform: uppercase;
+    letter-spacing: 7px;
+    display: grid;
+    gap: 0.5rem;
+
+    p:nth-child(1),
+    p:nth-child(3) {
+        justify-self: start;
+    }
+
+    p:nth-child(2) {
+        justify-self: end;
+    }
+}
+
+.subtitle {
+    width: 15rem;
+    @include font-details(var(--text-color), "bc-regular", 1rem);
+    letter-spacing: 1.2px;
+    text-align: justify;
+}
+
+.form {
+    display: grid;
+    justify-items: center;
+    gap: 1rem;
+
+    div {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        width: 15rem;
+    }
+}
+
+.form_title {
+    width: 0.9rem;
+    @include font-details(var(--text-color), "bc-regular", 0.7rem);
+    text-transform: uppercase;
+    writing-mode: vertical-lr;
+    text-orientation: upright;
+}
+
+.name,
+.email,
+.message {
+    width: 11rem;
+    background-color: transparent;
+    padding: 0.5rem;
+    border: 0.1rem solid var(--text-color);
+    border-radius: 0 !important;
+    @include font-details(var(--text-color), "bc-regular", 0.8rem);
+
+    &:focus,
+    &:focus-within,
+    &:focus-visible,
+    &:active {
+        background-color: var(--background);
+        border-radius: 0;
+        outline: none !important;
+        box-shadow: 0rem 0rem 0px 2px var(--text-color);
+    }
+
+    &::placeholder {
+        opacity: 0;
+    }
+
+    &.incomplete {
+        &::placeholder {
+            opacity: 0.6;
+            transition: opacity 1s;
+            @include font-details(#a00000, "bc-medium", 0.8rem);
+        }
+    }
+}
+
+// INDIVIDUAL
+.button {
+    width: 5rem;
+    background-color: transparent;
+    padding: 0.5rem;
+    position: relative;
+    @include font-details(var(--text-color), "ag-regular", 0.8rem);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: 0;
+
+    &::after,
+    &::before {
+        content: "";
+        position: absolute;
+        inset-block-start: 0px;
+        inset-inline-start: 0px;
+        inset-block-end: 0px;
+        inset-inline-end: 0px;
+        transition: all 0.5s;
+    }
+
+    &::after {
+        border-right: 1px solid var(--text-color);
+        border-left: 1px solid var(--text-color);
+        transform: scale(1, 0);
+    }
+
+    &::before {
+        border-top: 1px solid var(--text-color);
+        border-bottom: 1px solid var(--text-color);
+        transform: scale(0, 1);
+    }
+
+    &:hover,
+    &:focus,
+    &:focus-within {
+        letter-spacing: 4px;
+    }
+
+    &:hover::after,
+    &:hover::before,
+    &:focus::after,
+    &:focus::before,
+    &:focus-within::after,
+    &:focus-within::before {
+        transform: scale(1, 1);
+    }
+}
+
+.email_box {
+    flex-direction: row-reverse;
+}
+
+.message_box {
+    textarea {
+        scrollbar-color: var(--text-color) transparent;
+        overflow: auto;
+        height: 7rem;
+        padding-block-end: 0rem;
+        resize: none;
+
+        &::-webkit-scrollbar {
+            width: 0.25rem;
+        }
+
+        &::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: var(--text-color);
+        }
+    }
+}
+
+.result {
+    width: 15rem;
+    text-align: center;
+    @include font-details(var(--text-color), "bc-regular", 0.8rem);
+    letter-spacing: 1.2px;
+    justify-content: center;
+    animation: result 1s linear;
+}
+
+@media (min-width: 600px) {
+    .name,
+    .email,
+    .message {
+        width: 16rem;
+        font-size: 1rem;
+    }
+
+    .form div {
+        width: 20rem;
+    }
+
+    .button {
+        font-size: 1rem;
+        width: 7rem;
+    }
+}
+
+@keyframes result {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}

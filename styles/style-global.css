@@ -1,0 +1,84 @@
+@font-face {
+    font-family: ag-regular;
+    src: url("./fonts/agency-regular.woff") format("woff"),
+        url("./fonts/agency-regular.TTF") format("truetype");
+}
+@font-face {
+    font-family: ag-bold;
+    src: url("./fonts/agency-bold.woff") format("woff"),
+        url("./fonts/agency-bold.TTF") format("truetype");
+}
+@font-face {
+    font-family: bc-bold;
+    src: url("./fonts/BarlowCondensed-Bold.woff") format("woff"),
+        url("./fonts/BarlowCondensed-Bold.ttf") format("truetype");
+    font-weight: 700;
+}
+@font-face {
+    font-family: bc-medium;
+    src: url("./fonts/BarlowCondensed-Medium.woff") format("woff"),
+        url("./fonts/BarlowCondensed-Medium.ttf") format("truetype");
+    font-weight: 500;
+}
+@font-face {
+    font-family: bc-regular;
+    src: url("./fonts/BarlowCondensed-Regular.woff") format("woff"),
+        url("./fonts/BarlowCondensed-Regular.ttf") format("truetype");
+    font-weight: 400;
+}
+@font-face {
+    font-family: bc-light;
+    src: url("./fonts/BarlowCondensed-Light.woff") format("woff"),
+        url("./fonts/BarlowCondensed-Light.ttf") format("truetype");
+    font-weight: 300;
+}
+@font-face {
+    font-family: bc-thin;
+    src: url("./fonts/BarlowCondensed-Thin.woff") format("woff"),
+        url("./fonts/BarlowCondensed-Thin.ttf") format("truetype");
+    font-weight: 100;
+}
+
+html,
+body,
+* {
+    padding: 0;
+    margin: 0;
+    transition: all 0.5s;
+}
+
+.app {
+    --background: #fff;
+    --text-color: #000;
+    --background-image: url(../public/background.jpg);
+
+    background-color: var(--background);
+    color: var(--text-color);
+}
+
+.app.dark {
+    --background: #000;
+    --text-color: #fff;
+    --background-image: url(../public/backgrounddark.jpg);
+}
+
+body {
+    scrollbar-color: var(--background) transparent;
+    background-color: var(--background);
+    overflow-y: auto;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+body::-webkit-scrollbar {
+    width: 0.4rem;
+}
+
+body::-webkit-scrollbar-track {
+    background: #fff;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 0rem;
+}

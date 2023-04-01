@@ -1,0 +1,114 @@
+@use "../../styles/mixins.scss" as *;
+
+.main {
+    background-color: var(--background);
+    display: grid;
+    justify-items: center;
+    gap: 1rem;
+    padding-block: 1rem;
+
+    * {
+        z-index: 10;
+    }
+}
+.header {
+    height: 15rem;
+    @include fade-in();
+    transition: all 1s;
+
+    .photo {
+        transform: translateX(1.5rem);
+        width: 11rem;
+        height: 11rem;
+        background-color: #cccccc;
+    }
+
+    .text {
+        position: absolute;
+        background-color: var(--text-color);
+        transform: translate(-1.5rem, -7rem);
+        width: 11rem;
+        height: 11rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        gap: 0.2rem;
+        z-index: -2;
+
+        p {
+            color: var(--background);
+            padding-inline: 0.5rem;
+        }
+
+        .title {
+            @include font-details(var(--background), "bc-regular", 1.1rem);
+            text-transform: uppercase;
+        }
+
+        .sub_title {
+            @include font-details(var(--background), "bc-light", 0.75rem);
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            padding-block-end: 0.5rem;
+        }
+    }
+}
+
+@media (min-width: 320px) {
+    .header {
+        height: 18rem;
+
+        .photo,
+        .text {
+            width: 14rem;
+            height: 14rem;
+        }
+
+        .text {
+            transform: translate(-1.7rem, -10rem);
+
+            p {
+                padding-inline: 1rem;
+            }
+
+            .title {
+                font-size: 1.25rem;
+            }
+
+            .sub_title {
+                font-size: 1rem;
+            }
+        }
+    }
+}
+@media (min-width: 480px) {
+    .header {
+        height: 24rem;
+
+        .photo,
+        .text {
+            width: 18rem;
+            height: 18rem;
+        }
+
+        .text {
+            transform: translate(-2.9rem, -12rem);
+
+            p {
+                padding-inline: 1rem;
+            }
+
+            .title {
+                font-size: 1.5rem;
+            }
+
+            .sub_title {
+                font-size: 1.25rem;
+            }
+        }
+
+        .photo {
+            transform: translateX(3.5rem);
+        }
+    }
+}

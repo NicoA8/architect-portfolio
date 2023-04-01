@@ -1,0 +1,86 @@
+@use "../../styles/mixins.scss" as *;
+
+.button {
+    position: absolute;
+    width: 2.5rem;
+    height: 4rem;
+    cursor: pointer;
+    @include fade-in();
+    inset-inline-end: 0;
+    inset-block-start: 0;
+    z-index: 20;
+    cursor: pointer;
+
+    .dark,
+    .light {
+        width: 2.5rem;
+        height: 1.5rem;
+        position: absolute;
+        text-decoration: none;
+        text-transform: uppercase;
+        text-align: center;
+        backface-visibility: hidden;
+        will-change: transform;
+    }
+}
+
+.button.light {
+    transform: translate(-1rem, 0.5rem) rotate(0deg);
+    @include font-details(#000, "ag-regular", 1rem);
+
+    .light {
+        transform: translate(0rem, 0.2rem);
+    }
+
+    .dark {
+        transform: translate(0rem, 1.4rem) rotate(180deg);
+    }
+}
+.button.dark {
+    transform: translate(-1rem, -0.1rem) rotate(180deg);
+    transform-origin: center;
+    @include font-details(#fff, "ag-regular", 1rem);
+
+    .light {
+        transform: translate(0rem, 0.5rem);
+    }
+
+    .dark {
+        transform: translate(0rem, 1.8rem) rotate(180deg);
+    }
+}
+
+@media (min-width: 800px) {
+    .button {
+        width: 2.5rem;
+        height: 4rem;
+        inset-block-start: unset;
+        inset-block-end: 1rem;
+    }
+
+    .button.light {
+        font-size: 1.2rem;
+        transform: translate(-1.7rem, -1.5rem) rotate(-90deg);
+
+        .light {
+            transform: translate(0.2rem, 0.8rem);
+        }
+
+        .dark {
+            transform: translate(0.15rem, 2.7rem) rotate(180deg);
+        }
+    }
+
+    .button.dark {
+        font-size: 1.2rem;
+        transform: translate(-0.4rem, -1.5rem) rotate(-270deg);
+
+        .light {
+            transform: translate(0.2rem, 1.2rem);
+        }
+
+        .dark {
+            transform: translate(0.15rem, 3rem) rotate(180deg);
+        }
+    }
+}

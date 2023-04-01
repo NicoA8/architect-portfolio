@@ -1,0 +1,471 @@
+@use "../../styles/mixins.scss" as *;
+
+// COMMON
+.header {
+    display: grid;
+    grid-template-columns: 38% 62%;
+    grid-template-rows: 1fr;
+    margin: auto;
+    width: 16rem;
+    align-items: center;
+    padding-block: 0.5rem;
+    background-color: var(--background);
+    @include fade-in();
+}
+
+.scroll_container {
+    grid-column: 2/3;
+    grid-row: 1/3;
+    overflow-y: hidden;
+    display: flex;
+    width: 10rem;
+    height: 87vh;
+    overflow-x: auto;
+    background: transparent;
+    white-space: nowrap;
+
+    &::-webkit-scrollbar {
+        height: 5px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: var(--background);
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: var(--text-color);
+    }
+
+    .cover {
+        height: 85vh;
+    }
+}
+
+.scroll_container.active {
+    cursor: grabbing;
+}
+
+// DESCRIPTION
+.logo_title {
+    display: grid;
+    gap: 0.5rem;
+    justify-items: center;
+    transform: translateX(-3.2rem);
+
+    .logo {
+        width: 5.5rem;
+        height: auto;
+    }
+
+    .title_box {
+        display: grid;
+        align-content: center;
+        transform: rotate(-90deg);
+        width: 12rem;
+        height: 12rem;
+        backface-visibility: hidden;
+        will-change: transform;
+        perspective: 1000px;
+
+        .subtitle {
+            @include font-details(var(--text-color), "bc-light", 1rem);
+            text-align: justify;
+            letter-spacing: 4.5px;
+            text-transform: uppercase;
+        }
+
+        .title {
+            @include font-details(var(--text-color), "bc-regular", 2rem);
+            text-transform: uppercase;
+            letter-spacing: 5px;
+        }
+    }
+}
+
+.description {
+    height: 34rem;
+    display: grid;
+    gap: 0.3rem;
+    align-content: center;
+
+    .one {
+        width: 5.5rem;
+        @include font-details(var(--text-color), "bc-light", 0.7rem);
+        letter-spacing: -0.1px;
+        text-transform: uppercase;
+    }
+
+    .two {
+        width: 5.5rem;
+        @include font-details(var(--text-color), "bc-regular", 0.46rem);
+        text-align: justify;
+    }
+}
+
+.impreuna {
+    .title_box .subtitle {
+        letter-spacing: 3px;
+    }
+}
+
+.manufacturat {
+    .title_box {
+        .title {
+            letter-spacing: 2px;
+        }
+
+        .subtitle {
+            font-size: 0.8rem;
+            letter-spacing: 0px;
+        }
+    }
+}
+
+// HEIGHT
+@media (min-height: 750px) {
+    .header {
+        padding-block: 1rem;
+    }
+
+    .description .two {
+        font-size: 0.5rem;
+    }
+}
+
+@media (min-height: 900px) {
+    .description .two {
+        font-size: 0.6rem;
+    }
+}
+
+@media (min-height: 1000px) {
+    .description .two {
+        font-size: 0.7rem;
+    }
+}
+
+@media (min-height: 1100px) {
+    .header {
+        padding-block: 1.5rem;
+    }
+
+    .description .two {
+        font-size: 0.75rem;
+    }
+}
+
+@media (min-height: 1200px) {
+    .scroll_container {
+        height: 90vh;
+        .cover {
+            height: 87vh;
+        }
+    }
+}
+
+// WIDTH
+@media (min-width: 375px) {
+    .header {
+        grid-template-columns: 30% 70%;
+        width: 21rem;
+    }
+
+    .scroll_container {
+        width: 14.5rem;
+    }
+}
+
+@media (min-width: 450px) {
+    .header {
+        grid-template-columns: 25% 75%;
+        width: 25rem;
+    }
+
+    .scroll_container {
+        width: 18.5rem;
+    }
+}
+
+@media (min-width: 520px) {
+    .header {
+        grid-template-columns: 21% 79%;
+        width: 29rem;
+    }
+
+    .scroll_container {
+        width: 22.5rem;
+    }
+}
+
+@media (min-width: 650px) {
+    .header {
+        grid-template-columns: 16% 84%;
+        width: 38rem;
+    }
+
+    .scroll_container {
+        width: 32rem;
+    }
+}
+
+@media (min-height: 800px) and (min-width: 800px) {
+    .header {
+        padding-block: 2rem;
+        margin-inline: 2rem 0;
+        grid-template-columns: 20% 80%;
+        width: 43rem;
+    }
+
+    .description {
+        .one {
+            width: 7.5rem;
+            font-size: 0.8rem;
+        }
+
+        .two {
+            width: 7.5rem;
+            font-size: 0.7rem;
+        }
+    }
+
+    .scroll_container {
+        height: 94vh;
+        width: 34rem;
+        .cover {
+            height: 92vh;
+        }
+    }
+
+    .logo_title {
+        transform: translateX(-2.2rem);
+        .logo {
+            width: 7.5rem;
+            height: auto;
+        }
+    }
+
+    .culturall,
+    .skyscraper {
+        .description .one {
+            letter-spacing: 1.2px;
+        }
+    }
+
+    .boutique {
+        .description .one {
+            letter-spacing: 0.3px;
+        }
+    }
+
+    .medical {
+        .description .one {
+            letter-spacing: -0.02px;
+        }
+    }
+
+    .impreuna,
+    .manufacturat {
+        .description .one {
+            letter-spacing: 0.8px;
+        }
+    }
+
+    .landmark,
+    .industrial {
+        .description .one {
+            letter-spacing: 1.5px;
+        }
+    }
+}
+
+@media (min-height: 800px) and (min-width: 860px) {
+    .header {
+        margin-inline: 2.5rem 0;
+        grid-template-columns: 16% 84%;
+        width: 52.5rem;
+    }
+
+    .scroll_container {
+        width: 44rem;
+    }
+}
+
+@media (min-height: 800px) and (min-width: 950px) {
+    .header {
+        grid-template-columns: 15% 85%;
+        width: 56.5rem;
+    }
+
+    .scroll_container {
+        width: 48rem;
+    }
+}
+
+@media (min-height: 800px) and (min-width: 1050px) {
+    .header {
+        grid-template-columns: 13.5% 86.5%;
+        width: 62.5rem;
+    }
+
+    .scroll_container {
+        width: 54rem;
+    }
+}
+
+@media (min-height: 800px) and (min-width: 1150px) {
+    .header {
+        grid-template-columns: 12.5% 87.5%;
+        width: 68.5rem;
+    }
+
+    .scroll_container {
+        width: 60rem;
+    }
+}
+
+@media (min-height: 800px) and (min-width: 1250px) {
+    .header {
+        margin-inline: 2rem 0;
+        grid-template-columns: 11% 89%;
+        width: 75.5rem;
+    }
+
+    .scroll_container {
+        width: 67rem;
+    }
+}
+
+@media (min-height: 800px) and (min-width: 1350px) {
+    .header {
+        margin-inline: 2.5rem 0;
+        grid-template-columns: 10.5% 89.5%;
+        width: 81rem;
+    }
+
+    .scroll_container {
+        width: 72.5rem;
+    }
+}
+
+@media (min-height: 800px) and (min-width: 1450px) {
+    .header {
+        grid-template-columns: 9.5% 90.5%;
+        width: 87.5rem;
+    }
+
+    .scroll_container {
+        width: 79rem;
+    }
+}
+
+@media (min-height: 800px) and (min-width: 1550px) {
+    .header {
+        grid-template-columns: 9% 91%;
+        width: 93.5rem;
+    }
+
+    .scroll_container {
+        width: 85rem;
+    }
+}
+
+@media (min-height: 800px) and (min-width: 1650px) {
+    .header {
+        grid-template-columns: 8.5% 91.5%;
+        width: 100rem;
+    }
+
+    .scroll_container {
+        width: 91.5rem;
+    }
+}
+
+@media (min-height: 800px) and (min-width: 1650px) {
+    .header {
+        grid-template-columns: 8.5% 91.5%;
+        width: 100rem;
+    }
+
+    .scroll_container {
+        width: 91.5rem;
+    }
+}
+
+@media (min-height: 800px) and (min-width: 1750px) {
+    .header {
+        grid-template-columns: 8% 92%;
+        width: 105rem;
+    }
+
+    .scroll_container {
+        width: 95.7rem;
+    }
+}
+
+@media (min-height: 800px) and (min-width: 1850px) {
+    .header {
+        width: 112rem;
+    }
+
+    .scroll_container {
+        width: 103rem;
+    }
+}
+
+@media (min-height: 800px) and (min-width: 1950px) {
+    .header {
+        grid-template-columns: 7.5% 92.5%;
+        width: 119rem;
+    }
+
+    .scroll_container {
+        width: 110rem;
+    }
+}
+
+@media (min-height: 800px) and (min-width: 2100px) {
+    .header {
+        grid-template-columns: 7% 93%;
+        width: 127rem;
+    }
+
+    .scroll_container {
+        width: 118rem;
+    }
+}
+
+@media (min-height: 800px) and (min-width: 2200px) {
+    .header {
+        margin: auto;
+    }
+}
+
+@media (min-height: 980px) and (min-width: 1000px) {
+    .description .two {
+        font-size: 0.8rem;
+    }
+}
+// PHONE LANDSCAPE
+@media (max-height: 500px) {
+    .header {
+        height: 27.5rem;
+        align-items: center !important;
+    }
+
+    .description {
+        height: 23rem;
+    }
+
+    .logo_title {
+        transform: translateX(-0.2rem);
+        .title_box {
+            display: none;
+        }
+    }
+}
+
+@media (min-height: 700px) and (max-height: 800px) {
+    .header {
+        padding-block: 1.5rem;
+    }
+}

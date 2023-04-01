@@ -1,0 +1,20 @@
+@use "../../styles/mixins.scss" as *;
+
+.main {
+    display: grid;
+    padding: 2rem 0rem;
+    justify-items: center;
+    gap: 2rem;
+}
+
+@media (min-width: 800px) {
+    .main {
+        width: 91vw;
+    }
+}
+
+@media (min-width: 900px) {
+    .main {
+        width: 96vw;
+    }
+}

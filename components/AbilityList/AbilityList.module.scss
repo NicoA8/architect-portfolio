@@ -1,0 +1,18 @@
+@use "../../styles/mixins.scss" as *;
+
+.abilities_list {
+    list-style: square;
+    display: grid;
+    gap: 0.5rem;
+    list-style-position: inside;
+
+    .list_item {
+        @include font-details(var(--text-color), "bc-regular", 1rem);
+    }
+}
+
+@media (min-width: 480px) {
+    .abilities_list .list_item {
+        font-size: 1.25rem;
+    }
+}

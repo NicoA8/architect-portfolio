@@ -1,0 +1,143 @@
+@use "../../styles/mixins.scss" as *;
+
+.container {
+    perspective: 100rem;
+}
+
+.card {
+    width: 7rem;
+    height: 7rem;
+    display: block;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    transform-origin: center;
+    transition: transform 1s;
+
+    &.culturall,
+    &.manufacturat,
+    &.industrial {
+        perspective-origin: left;
+    }
+
+    &.boutique,
+    &.skyscraper,
+    &.landmark {
+        perspective-origin: right;
+    }
+}
+
+.card {
+    &:hover,
+    &:focus,
+    &:focus-within {
+        transform: rotateY(-180deg);
+    }
+}
+
+.card_face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    backface-visibility: hidden;
+    background-color: var(--background);
+}
+
+.card_back {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: rotateY(180deg);
+}
+
+.arrow_container {
+    position: absolute;
+    inset-inline-start: 50%;
+    inset-block-start: 50%;
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s;
+    height: 5rem;
+    width: 5rem;
+
+    .top,
+    .bottom {
+        background-color: var(--background);
+        height: 0.2rem;
+        inset-inline-start: 0.8rem;
+        position: absolute;
+        inset-block-start: 50%;
+        width: 60%;
+
+        &:after {
+            background-color: var(--text-color);
+            content: "";
+            height: 100%;
+            position: absolute;
+            inset-block-start: 0;
+            transition: all 0.15s;
+        }
+    }
+
+    .top {
+        transform: rotate(45deg);
+        transform-origin: bottom right;
+
+        &:after {
+            inset-inline-start: 100%;
+            inset-inline-end: 0;
+            transition-delay: 0s;
+        }
+    }
+
+    .bottom {
+        transform: rotate(-45deg);
+        transform-origin: top right;
+
+        &:after {
+            inset-inline-start: 0;
+            inset-inline-end: 100%;
+            transition-delay: 0.15s;
+        }
+    }
+
+    &:hover,
+    &:focus,
+    &:focus-within {
+        .top:after {
+            inset-inline-start: 0;
+            transition-delay: 0.15s;
+        }
+
+        .bottom:after {
+            inset-inline-end: 0;
+            transition-delay: 0s;
+        }
+    }
+    &:active {
+        transform: translate(-50%, -50%) scale(0.9);
+    }
+}
+
+@media (min-width: 375px) {
+    .card {
+        height: 8.5rem;
+        width: 8.5rem;
+    }
+}
+
+@media (min-width: 550px) {
+    .card {
+        height: 13rem;
+        width: 13rem;
+    }
+
+    .arrow_container {
+        height: 8rem;
+        width: 8rem;
+
+        .top,
+        .bottom {
+            inset-inline-start: 1.2rem;
+        }
+    }
+}

@@ -1,0 +1,72 @@
+@use "../../styles/mixins.scss" as *;
+
+// ABOUT SECTIONS - COMMON
+.inview_section {
+    width: 13rem;
+    display: grid;
+    gap: 0.25rem;
+    opacity: 0;
+    position: relative;
+    padding-inline: 1rem;
+}
+
+.section_title {
+    @include font-details(var(--text-color), "bc-light", 1.25rem);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+.title {
+    @include font-details(var(--text-color), "bc-medium", 1rem);
+    text-transform: uppercase;
+}
+
+.second_list {
+    list-style: square;
+    display: grid;
+    list-style-position: inside;
+    gap: 0.5rem;
+
+    .list_item {
+        @include font-details(var(--text-color), "bc-regular", 1rem);
+        text-transform: uppercase;
+    }
+}
+
+.sketchup,
+.lumion {
+    list-style: square;
+    padding-block-end: 0.5rem;
+}
+
+// APPEAR ON SCROLL
+.inview_section.appear {
+    opacity: 1;
+    transform: translateX(0);
+    animation: right-in 2s linear;
+}
+
+@media (min-width: 320px) {
+    .inview_section {
+        width: 16.5rem;
+    }
+}
+@media (min-width: 480px) {
+    .inview_section {
+        width: 23.5rem;
+    }
+
+    .section_title {
+        font-size: 1.5rem;
+    }
+
+    .title,
+    .second_list .list_item {
+        font-size: 1.25rem;
+    }
+}
+@media (min-width: 550px) {
+    .inview_section {
+        transform: translateX(-4rem);
+    }
+}

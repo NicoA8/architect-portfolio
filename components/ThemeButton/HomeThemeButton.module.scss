@@ -1,0 +1,70 @@
+@use "../../styles/mixins.scss" as *;
+
+.button {
+    position: absolute;
+    width: 5rem;
+    height: 5rem;
+    cursor: pointer;
+    @include fade-in();
+    inset-inline-end: 0;
+    inset-block-start: 0;
+    transform: translate(12%, -73%);
+    cursor: pointer;
+
+    &::before {
+        content: "";
+        position: absolute;
+        width: 5rem;
+        height: 0.08rem;
+        background-color: var(--text-color);
+        transform-origin: center;
+        transform: translate(0rem, 2.35rem);
+    }
+
+    .dark,
+    .light {
+        width: 5rem;
+        height: 1.5rem;
+        position: absolute;
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        text-align: center;
+    }
+
+    .light {
+        transform: translate(0.2rem, 1rem);
+        backface-visibility: hidden;
+        will-change: transform;
+    }
+
+    .dark {
+        transform: translate(0rem, 2.3rem) rotate(180deg);
+        backface-visibility: hidden;
+        will-change: transform;
+    }
+}
+
+.button.light {
+    @include font-details(#000, "ag-regular", 1.25rem);
+
+    &::before {
+        background-color: #000;
+    }
+}
+.button.dark {
+    transform-origin: center;
+    @include font-details(#fff, "ag-regular", 1.25rem);
+
+    &::before {
+        background-color: #fff;
+    }
+}
+
+.button.light {
+    transform: translate(12%, -73%) scale(0.7);
+}
+
+.button.dark {
+    transform: translate(12%, -73%) rotate(180deg) scale(0.7);
+}

@@ -1,0 +1,61 @@
+.box {
+    z-index: 10;
+    width: 3rem;
+    height: 3rem;
+    opacity: 0;
+    border: none;
+    background-color: transparent;
+    position: fixed;
+    inset-block-end: 0.4rem;
+    inset-inline-start: 0;
+
+    svg path {
+        transition: all 0.5ms;
+        stroke-width: 0;
+        fill: var(--text-color);
+        stroke: var(--text-color);
+    }
+
+    &.visible {
+        opacity: 0.8;
+
+        &:hover,
+        &:focus,
+        &:focus-within {
+            opacity: 1;
+
+            svg path {
+                animation: arrow-active 1.5s infinite alternate;
+            }
+        }
+    }
+}
+
+.active {
+    animation: arrow-active 1.5s 1 alternate;
+}
+
+@keyframes arrow-active {
+    0% {
+        fill: transparent;
+        stroke: var(--text-color);
+        stroke-dashoffset: 100%;
+        stroke-dasharray: 5 10;
+        stroke-width: 1;
+    }
+
+    50% {
+        fill: transparent;
+        stroke: var(--text-color);
+        stroke-width: 0.5;
+    }
+
+    100% {
+        fill: var(--text-color);
+        stroke: transparent;
+        stroke: var(--text-color);
+        stroke-dashoffset: -100%;
+        stroke-dasharray: 10 5;
+        stroke-width: 0;
+    }
+}

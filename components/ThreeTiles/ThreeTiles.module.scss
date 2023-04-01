@@ -1,0 +1,167 @@
+@use "../../styles/mixins.scss" as *;
+
+.container {
+    padding: 0.5rem;
+    padding-inline-end: 0;
+    overflow-y: hidden;
+    display: flex;
+    gap: 1rem;
+    width: 95vw;
+    overflow-x: scroll;
+    background: var(--background);
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 1s;
+    @include fade-in();
+
+    &.active {
+        cursor: grabbing;
+    }
+
+    &.inview {
+        opacity: 1;
+        div {
+            transform: translateX(0rem);
+        }
+    }
+
+    &::-webkit-scrollbar {
+        height: 5px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: var(--background);
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: var(--text-color);
+    }
+
+    div {
+        display: grid;
+        justify-items: start;
+        transform: translateX(-5rem);
+        transition: transform 1s;
+        gap: 0.5rem;
+
+        p {
+            @include font-details(var(--text-color), "bc-regular", 0.8rem);
+            text-transform: uppercase;
+            display: flex;
+            align-items: flex-end;
+            text-align: justify;
+            width: 14rem;
+            height: 3rem;
+            white-space: normal;
+            padding-block-end: 0.3rem;
+            border-block-end: 0.1rem solid var(--text-color);
+        }
+    }
+}
+
+.picture {
+    width: 14rem;
+    height: 14rem;
+}
+
+@media (min-width: 375px) {
+    .container div p {
+        width: 16rem;
+    }
+
+    .picture {
+        width: 16rem;
+        height: 16rem;
+    }
+}
+
+@media (min-width: 550px) {
+    .container div p {
+        width: 18rem;
+    }
+
+    .picture {
+        width: 18rem;
+        height: 18rem;
+    }
+}
+
+@media (min-width: 650px) {
+    .container div p {
+        width: 20rem;
+        font-size: 0.9rem;
+    }
+
+    .picture {
+        width: 20rem;
+        height: 20rem;
+    }
+}
+
+@media (min-width: 870px) {
+    .container div p {
+        width: 23rem;
+    }
+
+    .picture {
+        width: 23rem;
+        height: 23rem;
+    }
+}
+
+@media (min-width: 1220px) {
+    .container {
+        width: 72rem;
+
+        &::before {
+            width: 72rem;
+        }
+    }
+}
+
+@media (min-width: 1400px) {
+    .container {
+        width: 81rem;
+
+        &::before {
+            width: 81rem;
+        }
+    }
+
+    .picture {
+        width: 25rem;
+        height: 25rem;
+    }
+
+    .container {
+        justify-content: space-between;
+
+        div {
+            width: 25rem;
+
+            p {
+                width: 25rem;
+            }
+        }
+    }
+}
+
+@media (min-width: 1550px) {
+    .container {
+        width: 89rem;
+
+        &::before {
+            width: 89rem;
+        }
+    }
+}
+
+@media (min-width: 1700px) {
+    .container {
+        width: 96.5rem;
+
+        &::before {
+            width: 96.5rem;
+        }
+    }
+}

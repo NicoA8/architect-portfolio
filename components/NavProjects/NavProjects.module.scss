@@ -1,0 +1,66 @@
+@use "../../styles/mixins.scss" as *;
+
+.navbox,
+.navnext,
+.navback {
+    background: var(--background);
+}
+
+.next_project,
+.previous_project {
+    @include font-details(var(--text-color), "ag-regular", 0.9rem);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-decoration: none;
+    text-align: center;
+    width: 7rem;
+    padding: 0.2rem 0rem;
+    transition: filter 0.5s;
+    border-block-end: 0.1rem solid var(--text-color);
+    @include fade-in();
+}
+
+// NEXT
+.navnext {
+    display: flex;
+    padding: 1rem;
+    justify-content: flex-end;
+}
+
+.next_project {
+    &:hover,
+    &:focus,
+    &:focus-within {
+        filter: drop-shadow(-1rem -0.5rem 0rem #989898);
+    }
+}
+
+// PREVIOUS
+.navback {
+    display: flex;
+    padding: 1rem;
+    justify-content: flex-start;
+}
+
+.previous_project {
+    &:hover,
+    &:focus,
+    &:focus-within {
+        filter: drop-shadow(1rem -0.5rem 0rem #989898);
+    }
+}
+
+// BOTH
+.navbox {
+    display: flex;
+    padding: 1rem;
+    justify-content: space-between;
+}
+
+@media (min-width: 800px) {
+    .navbox,
+    .navnext,
+    .navback {
+        padding-inline: 2rem 6rem;
+    }
+}

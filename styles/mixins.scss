@@ -1,0 +1,16 @@
+@mixin font-details($color, $family, $size) {
+  color: $color;
+  font-family: $family, sans-serif;
+  font-size: $size;
+}
+@mixin fade-in() {
+  animation: fade-in 2s ease-in;
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+}

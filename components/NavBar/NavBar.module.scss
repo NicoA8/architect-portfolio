@@ -1,0 +1,137 @@
+@use "../../styles/mixins.scss" as *;
+
+// MENU
+.menu {
+    display: grid;
+    background-color: var(--background);
+    z-index: 11;
+    justify-items: center;
+    inset-block-start: 1rem;
+    inset-block-end: 1rem;
+    grid-template-columns: repeat(5, 20%);
+    grid-template-rows: 1fr 1fr;
+    padding: 0.5rem;
+
+    a {
+        @include font-details(var(--text-color), "ag-regular", 0.9rem);
+        text-transform: uppercase;
+        text-decoration: none;
+        padding-block: 0.2rem;
+        transition: all 200ms;
+
+        &.home {
+            grid-row: 1/2;
+            grid-column: 1/2;
+        }
+
+        &.about {
+            grid-row: 2/3;
+            grid-column: 2/3;
+        }
+
+        &.projects {
+            grid-row: 1/2;
+            grid-column: 3/4;
+        }
+
+        &.contact {
+            grid-row: 2/3;
+            grid-column: 4/5;
+        }
+
+        &:hover,
+        &:focus,
+        &:focus-within {
+            letter-spacing: 3px;
+        }
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        transform: translateY(1.5rem);
+        background-color: var(--text-color);
+        width: 95vw;
+        height: 0.08rem;
+        animation: hor-menu-ani 2s;
+    }
+}
+
+@media (min-width: 400px) {
+    .menu a {
+        font-size: 1rem;
+    }
+}
+
+@media (min-width: 800px) {
+    .menu {
+        margin: 0;
+        justify-items: center;
+        align-items: center;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 23% 23% 23% 23% 8%;
+        width: 4rem;
+        inset-inline-end: 0rem;
+        inset-block-start: 0rem;
+        inset-block-end: 0rem;
+        position: fixed;
+        padding: 0.5rem;
+        backface-visibility: hidden;
+        will-change: transform;
+        perspective: 1000;
+
+        &::after {
+            content: "";
+            position: absolute;
+            transform: translateY(0rem);
+            background-color: var(--text-color);
+            height: 95vh;
+            width: 0.08rem;
+            animation: ver-menu-ani 2s;
+        }
+
+        a {
+            font-size: 1.25rem;
+            position: absolute;
+            outline: 1px solid transparent;
+            backface-visibility: hidden;
+            will-change: transform;
+            perspective: 1000;
+            transform: rotate(-90deg);
+            &.home {
+                grid-row: 1/2;
+                grid-column: 1/2;
+            }
+            &.about {
+                grid-row: 2/3;
+                grid-column: 2/3;
+            }
+            &.projects {
+                grid-row: 3/4;
+                grid-column: 1/2;
+            }
+            &.contact {
+                grid-row: 4/5;
+                grid-column: 2/3;
+            }
+        }
+    }
+}
+
+@keyframes hor-menu-ani {
+    from {
+        width: 0%;
+    }
+    to {
+        width: 95%;
+    }
+}
+
+@keyframes ver-menu-ani {
+    from {
+        height: 0%;
+    }
+    to {
+        height: 97%;
+    }
+}

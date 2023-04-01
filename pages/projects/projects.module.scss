@@ -1,0 +1,13 @@
+@use "../../styles/mixins.scss" as *;
+
+.projects_box {
+    padding: 1rem;
+    background-color: var(--background);
+    display: grid;
+    row-gap: 0.5rem;
+    justify-items: center;
+
+    * {
+        z-index: 10;
+    }
+}

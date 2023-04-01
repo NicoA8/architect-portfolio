@@ -1,0 +1,86 @@
+@use "../../styles/mixins.scss" as *;
+
+.square_box {
+    display: block;
+    border: 0.1rem solid var(--text-color);
+    height: 1.5rem;
+    width: 11.9rem;
+    background-color: var(--background);
+    transition: all 2s;
+
+    &::after {
+        content: "";
+        width: 0rem;
+        height: 1.6rem;
+        background-color: var(--text-color);
+        transform: translate(-1px, -1px);
+        position: absolute;
+    }
+}
+.square_box.appear {
+    display: block;
+
+    &.medium {
+        &::after {
+            width: 6rem;
+            animation: medium-animation 2s linear;
+
+            @keyframes medium-animation {
+                0% {
+                    width: 0rem;
+                }
+                100% {
+                    width: 6rem;
+                }
+            }
+        }
+    }
+
+    &.good {
+        &::after {
+            width: 8rem;
+            animation: good-animation 2s linear;
+
+            @keyframes good-animation {
+                0% {
+                    width: 0rem;
+                }
+                100% {
+                    width: 8rem;
+                }
+            }
+        }
+    }
+
+    &.advanced {
+        &::after {
+            width: 10rem;
+            animation: advanced-animation 2s linear;
+
+            @keyframes advanced-animation {
+                0% {
+                    width: 0rem;
+                }
+                100% {
+                    width: 10rem;
+                }
+            }
+        }
+    }
+
+    &.proficient {
+        &::after {
+            width: 12rem;
+            animation: proficient-animation 2s linear;
+
+            @keyframes proficient-animation {
+                0% {
+                    width: 0rem;
+                }
+                100% {
+                    width: 12rem;
+                }
+            }
+        }
+    }
+}

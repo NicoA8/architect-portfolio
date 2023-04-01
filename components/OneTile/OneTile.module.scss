@@ -1,0 +1,126 @@
+@use "../../styles/mixins.scss" as *;
+
+.container {
+    margin: 1rem 0;
+    padding: 0.5rem;
+    padding-inline-end: 0;
+    overflow-y: hidden;
+    display: grid;
+    gap: 0.7rem;
+    width: 95vw;
+    overflow-x: scroll;
+    background: var(--background);
+    white-space: nowrap;
+
+    &.active {
+        cursor: grabbing;
+    }
+
+    * {
+        opacity: 0;
+        transition: opacity 1s;
+        transform: translateX(-5rem);
+        transition: transform 1s;
+    }
+
+    &.inview {
+        * {
+            opacity: 1;
+            transform: translateX(0rem);
+        }
+    }
+
+    &::-webkit-scrollbar {
+        height: 5px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: var(--background);
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: var(--text-color);
+    }
+
+    div {
+        display: flex;
+        @include font-details(var(--text-color), "bc-regular", 0.8rem);
+        text-transform: uppercase;
+        justify-content: space-between;
+
+        p {
+            width: 10rem;
+            height: 3rem;
+            padding-inline: 1rem;
+            white-space: wrap;
+            text-transform: uppercase;
+            display: flex;
+            align-items: flex-end;
+            text-align: justify;
+            white-space: normal;
+        }
+    }
+}
+
+.plan {
+    width: auto;
+    height: 14rem;
+    padding-block-start: 1rem;
+    border-block-start: 0.1rem solid var(--text-color);
+}
+
+@media (min-width: 375px) {
+    .plan {
+        height: 16rem;
+    }
+}
+
+@media (min-width: 550px) {
+    .plan {
+        height: 18rem;
+    }
+}
+
+@media (min-width: 650px) {
+    .container div p {
+        font-size: 0.9rem;
+    }
+    .plan {
+        height: 20rem;
+    }
+}
+
+@media (min-width: 800px) {
+    .container div p {
+        padding-inline: 4rem;
+    }
+    .plan {
+        height: 25rem;
+    }
+}
+
+@media (min-width: 870px) {
+    .plan {
+        height: 30rem;
+    }
+}
+
+@media (min-width: 1220px) {
+    .plan {
+        height: 35rem;
+        padding-block: 1rem;
+    }
+    .container div p {
+        padding-inline: 4rem;
+        width: 18rem;
+    }
+}
+
+@media (min-width: 1900px) {
+    .container {
+        width: 119rem;
+        &::before {
+            width: 118rem;
+        }
+    }
+}

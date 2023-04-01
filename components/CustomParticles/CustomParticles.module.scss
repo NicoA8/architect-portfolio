@@ -1,0 +1,10 @@
+.particles {
+    opacity: 0.4;
+    transition: none;
+}
+
+@media (min-width: 1200px) {
+    .particles {
+        opacity: 1;
+    }
+}

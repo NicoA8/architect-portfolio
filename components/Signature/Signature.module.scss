@@ -1,0 +1,283 @@
+.signature {
+    transform: scale(1);
+    transform-origin: left;
+    width: 27rem;
+    height: 18rem;
+    margin: auto;
+    transition: none;
+
+    svg {
+        display: none;
+        position: absolute;
+
+        &.active {
+            display: block;
+        }
+    }
+
+    path {
+        fill: none;
+        stroke: var(--text-color);
+        stroke-width: 3.5;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-miterlimit: 10;
+    }
+
+    svg {
+        &:nth-child(1) {
+            transform: translate(6.5rem, 3rem);
+
+            path {
+                stroke-dasharray: 177;
+                animation: write-l1 1.5s linear;
+            }
+        }
+    }
+
+    svg {
+        &:nth-child(2) {
+            transform: translate(7rem, 7rem);
+
+            path {
+                stroke-dasharray: 45;
+                animation: write-l2 0.5s linear;
+            }
+        }
+    }
+
+    svg {
+        &:nth-child(3) {
+            transform: translate(7.5rem, 7.2rem);
+
+            path {
+                stroke-dasharray: 45;
+                animation: write-l2 0.5s linear;
+            }
+        }
+    }
+
+    svg {
+        &:nth-child(4) {
+            transform: translate(8rem, 8.3rem);
+
+            path {
+                stroke-dasharray: 63;
+                animation: write-a 1s linear;
+            }
+        }
+    }
+
+    svg {
+        &:nth-child(5) {
+            transform: translate(9.2rem, 4.5rem);
+
+            path {
+                stroke-dasharray: 125;
+                animation: write-d 1s linear;
+            }
+        }
+    }
+
+    svg {
+        &:nth-child(6) {
+            transform: translate(10.6rem, 8.3rem);
+
+            path {
+                stroke-dasharray: 63;
+                animation: write-a 1s linear;
+            }
+        }
+    }
+
+    svg {
+        &:nth-child(7) {
+            transform: translate(12rem, 5.5rem);
+
+            path {
+                stroke-dasharray: 148;
+                animation: write-l 1.5s linear;
+            }
+        }
+    }
+
+    svg {
+        &:nth-child(8) {
+            transform: translate(13.4rem, 9rem);
+
+            path {
+                stroke-dasharray: 20;
+                animation: write-i 1.5s linear;
+            }
+        }
+    }
+
+    svg {
+        &:nth-child(9) {
+            transform: translate(13.4rem, 8rem);
+
+            path {
+                stroke-dasharray: 20;
+                animation: write-i 1.5s linear;
+            }
+        }
+    }
+
+    svg {
+        &:nth-child(10) {
+            transform: translate(14rem, 8.5rem);
+
+            path {
+                stroke-dasharray: 58;
+                animation: write-n 1.5s linear;
+            }
+        }
+    }
+
+    svg {
+        &:nth-child(11) {
+            transform: translate(15.6rem, 8.3rem);
+
+            path {
+                stroke-dasharray: 63;
+                animation: write-a 1s linear;
+            }
+        }
+    }
+
+    svg {
+        &:nth-child(12) {
+            transform: translate(17.5rem, 3rem);
+
+            path {
+                stroke-dasharray: 177;
+                animation: write-l1 1.5s linear;
+            }
+        }
+    }
+
+    svg {
+        &:nth-child(13) {
+            transform: translate(18rem, 7rem);
+
+            path {
+                stroke-dasharray: 45;
+                animation: write-l2 0.5s linear;
+            }
+        }
+    }
+
+    svg {
+        &:nth-child(14) {
+            transform: translate(18.5rem, 7.2rem);
+
+            path {
+                stroke-dasharray: 45;
+                animation: write-l2 0.5s linear;
+            }
+        }
+    }
+
+    svg {
+        &:nth-child(15) {
+            transform: translate(-0.5rem, 5.3rem);
+
+            path {
+                stroke-dasharray: 545;
+                animation: write-line 1.5s linear;
+            }
+        }
+    }
+
+    svg {
+        &:nth-child(16) {
+            transform: translate(19rem, 10rem);
+
+            path {
+                stroke-dasharray: 3;
+                animation: write-dot 0.1s linear;
+            }
+        }
+    }
+}
+
+@keyframes write-l1 {
+    0% {
+        stroke-dashoffset: 177;
+    }
+    40% {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes write-l2 {
+    0% {
+        stroke-dashoffset: 45;
+    }
+    40% {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes write-a {
+    0% {
+        stroke-dashoffset: 63;
+    }
+    40% {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes write-d {
+    0% {
+        stroke-dashoffset: 125;
+    }
+    40% {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes write-l {
+    0% {
+        stroke-dashoffset: 148;
+    }
+    40% {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes write-i {
+    0% {
+        stroke-dashoffset: 20;
+    }
+    40% {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes write-n {
+    0% {
+        stroke-dashoffset: 58;
+    }
+    40% {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes write-line {
+    0% {
+        stroke-dashoffset: 546;
+    }
+    40% {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes write-dot {
+    0% {
+        stroke-dashoffset: 3;
+    }
+    40% {
+        stroke-dashoffset: 0;
+    }
+}

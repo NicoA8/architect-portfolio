@@ -1,0 +1,342 @@
+@use "../../styles/mixins.scss" as *;
+
+.boutique,
+.industrial,
+.landmark,
+.manufacturat,
+.culturall,
+.medical,
+.skyscraper,
+.impreuna {
+    height: 15rem;
+    width: 15rem;
+
+    .title,
+    .project {
+        opacity: 0;
+        transition: opacity 2s;
+        @include fade-in();
+    }
+
+    &.appear {
+        .title,
+        .project {
+            opacity: 1;
+        }
+    }
+
+    > * {
+        position: absolute;
+    }
+
+    &::before {
+        content: "";
+        position: absolute;
+        width: 0.09rem;
+        transform: translate(7.5rem, 0rem);
+        height: 1rem;
+        background-color: var(--text-color);
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        transform: translate(7.5rem, 1.5rem);
+        width: 0.05rem;
+        height: 13.5rem;
+        background-color: var(--text-color);
+    }
+
+    .title {
+        display: grid;
+        @include font-details(var(--text-color), "ag-regular", 1rem);
+        text-transform: uppercase;
+        letter-spacing: 2px;
+
+        &::before {
+            content: "";
+            position: absolute;
+            width: 1.8rem;
+            height: 0.08rem;
+            background-color: var(--text-color);
+        }
+    }
+
+    .project {
+        @include font-details(var(--text-color), "ag-regular", 0.7rem);
+        text-transform: uppercase;
+        display: grid;
+        gap: 0.5rem;
+
+        .subtitle {
+            display: grid;
+
+            p:nth-child(1) {
+                white-space: nowrap;
+                width: 7rem;
+                border-block-end: 0.15rem solid var(--text-color);
+            }
+
+            p {
+                height: 1rem;
+                display: flex;
+                align-items: center;
+            }
+        }
+    }
+}
+
+.boutique,
+.industrial,
+.landmark,
+.manufacturat {
+    .title {
+        justify-items: end;
+        transform: translate(5rem, 2.5rem);
+
+        &::before {
+            content: "";
+            transform: translate(0rem, -0.2rem);
+        }
+    }
+
+    .project {
+        transform: translate(8.2rem, 4.8rem);
+
+        .subtitle {
+            justify-items: start;
+        }
+    }
+}
+
+.culturall,
+.medical,
+.skyscraper,
+.impreuna {
+    .title {
+        justify-items: start;
+        transform: translate(8.2rem, 2.5rem);
+
+        &::before {
+            transform: translate(-0.15rem, -0.2rem);
+        }
+    }
+
+    .project {
+        transform: translate(0rem, 4.8rem);
+
+        .subtitle {
+            p {
+                justify-content: end;
+            }
+        }
+    }
+}
+
+.boutique,
+.medical,
+.skyscraper,
+.landmark,
+.impreuna {
+    .project {
+        letter-spacing: 2px;
+    }
+}
+
+@media (min-width: 375px) {
+    .boutique,
+    .industrial,
+    .landmark,
+    .manufacturat,
+    .culturall,
+    .medical,
+    .skyscraper,
+    .impreuna {
+        height: 18rem;
+        width: 18rem;
+
+        &::before {
+            width: 0.15rem;
+            height: 1rem;
+            transform: translate(9rem, 0rem);
+        }
+
+        &::after {
+            width: 1px;
+            transform: translate(9rem, 1.5rem);
+            height: 16.5rem;
+        }
+        .title {
+            font-size: 1.25rem;
+            &::before {
+                width: 2rem;
+                height: 0.15rem;
+                transform: translate(-0.1rem, -0.2rem);
+            }
+        }
+        .project {
+            font-size: 0.85rem;
+            .subtitle {
+                p:nth-child(1) {
+                    white-space: nowrap;
+                    width: 8.5rem;
+                }
+                p {
+                    height: 1.5rem;
+                }
+            }
+        }
+    }
+
+    .boutique,
+    .industrial,
+    .landmark,
+    .manufacturat {
+        .title {
+            transform: translate(6.2rem, 3.5rem);
+        }
+        .project {
+            transform: translate(10rem, 5.25rem);
+        }
+    }
+
+    .culturall,
+    .medical,
+    .skyscraper,
+    .impreuna {
+        .title {
+            transform: translate(10rem, 3.5rem);
+        }
+        .project {
+            transform: translate(0rem, 5.25rem);
+        }
+    }
+
+    .culturall,
+    .manufacturat {
+        .subtitle {
+            p:nth-child(1) {
+                font-size: 0.8rem;
+            }
+        }
+    }
+
+    .boutique,
+    .medical,
+    .skyscraper,
+    .landmark,
+    .impreuna {
+        .project {
+            letter-spacing: 2.5px;
+        }
+    }
+}
+
+@media (min-width: 550px) {
+    .boutique,
+    .industrial,
+    .landmark,
+    .manufacturat,
+    .culturall,
+    .medical,
+    .skyscraper,
+    .impreuna {
+        height: 28rem;
+        width: 28rem;
+        gap: 0.8rem;
+
+        &::before {
+            transform: translate(14rem, 0.3rem);
+            height: 2rem;
+        }
+
+        &::after {
+            transform: translate(14rem, 3rem);
+            height: 25rem;
+        }
+
+        .title {
+            font-size: 1.5rem;
+            letter-spacing: 8px;
+
+            &::before {
+                width: 3.7rem;
+            }
+        }
+
+        .project {
+            font-size: 0.85rem;
+            letter-spacing: 0.3px;
+            font-size: 1.25rem;
+
+            .subtitle {
+                p:nth-child(1) {
+                    width: 13rem;
+                    white-space: nowrap;
+                }
+
+                p {
+                    height: 1.75rem;
+                }
+            }
+        }
+    }
+
+    .culturall,
+    .manufacturat {
+        .subtitle {
+            p:nth-child(1) {
+                font-size: 1.25rem;
+            }
+        }
+    }
+
+    .boutique,
+    .industrial,
+    .landmark,
+    .manufacturat {
+        .title {
+            transform: translate(9.2rem, 5.5rem);
+
+            &::before {
+                transform: translate(-0.15rem, -0.2rem);
+            }
+        }
+
+        .project {
+            transform: translate(15.5rem, 9rem);
+        }
+    }
+
+    .culturall,
+    .medical,
+    .skyscraper,
+    .impreuna {
+        .title {
+            transform: translate(15.5rem, 5.5rem);
+
+            &::before {
+                transform: translate(-0.4rem, -0.2rem);
+            }
+        }
+
+        .project {
+            transform: translate(-0.5rem, 9rem);
+        }
+    }
+
+    .boutique,
+    .skyscraper,
+    .landmark,
+    .medical {
+        .project {
+            letter-spacing: 4.5px;
+        }
+    }
+
+    .impreuna {
+        .project {
+            letter-spacing: 4px;
+        }
+    }
+}
